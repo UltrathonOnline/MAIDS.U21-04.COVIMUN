@@ -1,0 +1,222 @@
+<!-- Edit the answers below to describe your dataset -->
+<!-- Do not change questions as these are defined by the MAIDS specification -->
+<root name="ABOUT">
+    <title>
+        <question>What is the title of your dataset?</question>
+        <answer>Predicting the immune response to SARS-CoV2 in the COVIMUN cohort, a study of host genetics and cytokine response profiles in the context of known immunological pathways</answer>
+    </title>
+    <repository>
+        <question>What is the URL of the repository for this MAIDS description on Github?</question>
+        <answer>https://github.com/UltrathonOnline/MAIDS.U21-04.COVIMUN</answer>
+    </repository>
+    <authors>
+        <question>Who are the dataset's authors?</question>
+        <answer>
+            <author_1>
+                <!-- Primary contact that must always be specified -->
+                <firstnames>Eva Rebecka</firstnames>
+                <lastname>Svanberg</lastname>
+                <email>eva.rebecka.svanberg@regionh.dk</email>
+            </author_1>
+            <author_2>
+                <firstnames>Carsten Utoft</firstnames>
+                <lastname>Niemann</lastname>
+                <email>carsten.utoft.niemann@regionh.dk</email>
+            </author_2>
+            <author_3>
+                <firstnames>Sisse Rye</firstnames>
+                <lastname>Ostrowski</lastname>
+                <email>sisse.rye.ostrowski@regionh.dk</email>
+            </author_3>
+            <author_4>
+                <firstnames>Rasmus Lykke</firstnames>
+                <lastname>Marvig</lastname>
+                <email>rasmus.lykke.marvig@regionh.dk</email>
+            </author_4>
+            <author_5>
+                <firstnames>Preston</firstnames>
+                <lastname>Leung</lastname>
+                <email>preston.yui.sum.leung@regionh.dk</email>
+            </author_5>
+        </answer>
+    </authors>
+    <scores>
+        <document>
+            <score>
+                <question>What is the document score, as defined by MAIDS?</question>
+                <answer>1</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer></answer>
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer></answer>
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer></answer>
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer></answer>
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer></answer>
+                </contactEmail>
+            </evaluator>
+        </document>
+        <fairness>
+            <score>
+                <question>What is the fairness score given, as defined by MAIDS?</question>
+                <answer>?</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer></answer>
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer></answer>
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer></answer>
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer></answer>
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer></answer>
+                </contactEmail>
+            </evaluator>
+        </fairness>
+        <magnitude>
+            <score>
+                <question>What is the magnitude score given, as defined by MAIDS?</question>
+                <answer>2</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer></answer>
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer></answer>
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer></answer>
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer></answer>
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer></answer>
+                </contactEmail>
+            </evaluator>
+        </magnitude>
+        <synthetic>
+            <score>
+                <question>What is the synthetic score given, as defined by MAIDS?</question>
+                <answer>E</answer>
+            </score>
+            <comment>
+                <question>Why was this score given? Provide a full justification.</question>
+                <answer></answer>
+            </comment>
+            <evaluator>
+                <entityType>
+                    <question>What gave the score? [algorithm / group / committee / person]</question>
+                    <answer></answer>
+                </entityType>
+                <entityName>
+                    <question>Name of algorithm / group / committee / person who gave the score?</question>
+                    <answer></answer>
+                </entityName>
+                <contactName>
+                    <question>Who should be contacted to query the score?</question>
+                    <answer></answer>
+                </contactName>
+                <contactEmail>
+                    <question>What is the contact person's email address?</question>
+                    <answer></answer>
+                </contactEmail>
+            </evaluator>
+        </synthetic>
+    </scores>
+    <thematic>
+        <filename>thematic.jpg</filename>
+    </thematic>
+    <abstract>
+        <question>Please provide a brief abstract describing this dataset.</question>
+        <answer>The sudden emergence of a global pandemic with a new pathogen, SARS-CoV-2, created an instant need to understand the immunologic reactions arising in response to infection with this pathogen, as well as understanding the underlying patient-specific factors determining the circumstances within which these immune reactions occur. As a result, the current dataset was created, combining whole genome sequencing with consecutive extensive characterization of patient immune cell composition and phenotypes together with in vitro functional assessment of stimulated whole blood immune responses. The current dataset provides a unique opportunity to unravel correlations between genotype and immune phenotype- and function in response to COVID-19, which could ultimately have significant clinical impact.</answer>
+    </abstract>
+    <usecases>
+        <question>Please provide one or more short use cases to highlight what this dataset might be used for. These should summarise the main and secondary research questions into single sentence objectives. You may also use this section to expand on possible uses not discussed in the research questions.</question>
+        <answer>
+            <usecase_1 />
+        </answer>
+    </usecases>
+    <research>
+        <main>
+            <question>Please state, in detail, the main hypothesis for which this dataset was created.</question>
+            <answer>The pandemic due to COVID-19 remains a global health crisis, having already claimed over 2 million lives over the past 14 months. Clinical presentation of the disease varies from asymptomatic or mild cold-like symptoms to severe pneumonia requiring ventilator support or multi-organ failure, and it remains a major challenge to uncover the immunological mechanisms underlying the diverse clinical presentation and course of COVID-19. Furthermore, it is largely unknown to what degree the host genome might contribute to the immune response in SARS-CoV-2 infection. We have applied whole genome sequencing in parallel with consecutive extensive immune phenotyping (10 color 7 tube flowcytometry per sample) and functional immune characterization (TruCulture technique, 5 stimuli, 9 cytokines per sample) assays in 100 patients hospitalized with COVID-19 in Denmark. The immune analyses were performed upon hospital admission, and hereafter weekly until discharge or death. Our hypothesis is that host genetics contribute to the immune response to SARS-CoV-2, and our primary aim is to identify genetic features that can predict immune phenotypes and function in patients hospitalized with COVID-19. A better understanding of the relationship between the host genome and the immune response to SARS-CoV-2 would not only help improve personalized risk assessment, care, and treatment of COVID-19 patients, but also provide helpful knowledge for development of future medical targets and vaccines as well as tools for treating and preventing other infectious diseases. We therefore pose the challenge here of mapping host genetics to personalized response profiles, i.e. measures of patient’s unique immune behavior. We provide additional data to model batch effects as well as in house methods making use of graph techniques to increase statistical power, but especially look for novel solutions from the community. An additional cohort of 100 will be collected and added to this dataset providing opportunity to test solutions.</answer>
+        </main>
+        <secondary>
+            <question>Please state, in detail, any other hypotheses which this dataset would be able to address.</question>
+            <answer></answer>
+        </secondary>
+    </research>
+    <figures>
+        <question>Please entitle and provide a legend for each figure found in "./images/figures/".</question>
+        <answer></answer>
+    </figures>
+    <subsetAssociations>
+        <filename>subset.jpg</filename>
+        <legend>
+            <question>What is the legend for the figure describing how subsets are associated to one another?</question>
+            <answer>Three subsets linked by a pseudonymized patient identifier.</answer>
+        </legend>
+    </subsetAssociations>
+    <populationSelection>
+        <rootNode>
+            <nodeid>0</nodeid> <!-- Do not change. Use nodeids as reference points. -->
+            <name />
+            <description />
+            <sources>
+                <!-- INSERT TEMPLATE SOURCES HERE  -->
+            </sources>
+        </rootNode>
+        <!-- INSERT TEMPLATE NODES HERE AND REFERENCE THEIR PARENTS -->
+    </populationSelection>
+</root>
+
+<!-- NODE TEMPLATES FOR DEFINING THE POPULATION SELECTION GRAPH 
+<node>
+    <nodeid />
+    <name />
+    <description />
+    <location />
+</node>
+
+<source>
+    <entityName />
+    <entityAddress />
+    <contactPerson />
+    <contactEmail />
+    <dataDescription />
+    <instancesContributed />
+    <beginDateCollection />
+    <endDateCollection />
+</source>
+-->

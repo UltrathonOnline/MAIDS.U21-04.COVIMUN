@@ -1,917 +1,235 @@
 <!DOCTYPE html>
 <html>
+ <head>
+  <title>
+   Medical AI Datasheet (MAIDS)
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=EDGE" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="./css/style.css" rel="stylesheet"/>
+  <link href="./css/help.css" rel="stylesheet"/>
+  <link href="./css/lightbox.css" rel="stylesheet"/>
+  <link href="./css/slick.css" rel="stylesheet"/>
+  <link href="./css/dt.css" rel="stylesheet"/>
+  <script src="./js/social.js">
+  </script>
+  <script src="./js/lightbox-plus-jquery.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js">
+  </script>
+  <script src="./js/hbhelpers.js">
+  </script>
+  <script src="./js/hbmaids.js">
+  </script>
+  <script src="./js/slick.js">
+  </script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js">
+  </script>
+  <script src="./js/dt.js">
+  </script>
+ </head>
+ <body>
+  <div id="emptyHandle">
+  </div>
+  <script type="text/javascript">
+   var template = Handlebars.templates['maids']
 
-<head>
-    <title>
-        Medical AI Datasheet (MAIDS)
-    </title>
-    <meta charset="utf-8" />
-    <meta content="IE=EDGE" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link href="./css/style.css" rel="stylesheet" />
-    <link href="./css/help.css" rel="stylesheet" />
-    <link href="./css/lightbox.css" rel="stylesheet" />
-    <link href="./css/slick.css" rel="stylesheet" />
-    <link href="./css/dt.css" rel="stylesheet" />
-    <script src="./js/social.js">
-    </script>
-    <script src="./js/lightbox-plus-jquery.js">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js">
-    </script>
-    <script src="./js/hbhelpers.js">
-    </script>
-    <script src="./js/hbmaids.js">
-    </script>
-    <script src="./js/slick.js">
-    </script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js">
-    </script>
-    <script src="./js/dt.js">
-    </script>
-</head>
-
-<body>
-    <div id="emptyHandle">
-    </div>
-    <script type="text/javascript">
-        var template = Handlebars.templates['maids']
-
-        var filledHandle = template({
-            title: "A very interesting title indeed!",
-            repository: "https://github.com/PERSIMUNE-Health-Informatics/MAIDS-Template",
-            authors: [{
-                author: {
-                    firstnames: "John",
-                    lastname: "Doe",
-                    email: "john.doe@somedomain.com",
-                },
-            }, {
-                author: {
-                    firstnames: "Jane",
-                    lastname: "Doe",
-                    email: "jane.doe@somedomain.com",
-                },
-            }, ],
-            scores: {
-                document: {
-                    score: "1",
-                    comment: "This is a basic description of the dataset and missing the necessary statistical description to generate a decent synthetic version.",
-                    evaluator: {
-                        entityType: "person",
-                        entityName: "John Doe",
-                        contactName: "John Doe",
-                        contactEmail: "john.doe@somedomain.com",
-                    },
-                },
-                fairness: {
-                    score: "?",
-                    comment: "No committee has evaluated this dataset.",
-                    evaluator: {
-                        entityType: "None",
-                        entityName: "None",
-                        contactName: "None",
-                        contactEmail: "None",
-                    },
-                },
-                magnitude: {
-                    score: "0",
-                    comment: "This example dataset contains no data.",
-                    evaluator: {
-                        entityType: "person",
-                        entityName: "John Doe",
-                        contactName: "John Doe",
-                        contactEmail: "john.doe@somedomain.com",
-                    },
-                },
-                synthetic: {
-                    score: "E",
-                    comment: "No synthetic data or scripts to generate such data are included.",
-                    evaluator: {
-                        entityType: "person",
-                        entityName: "John Doe",
-                        contactName: "John Doe",
-                        contactEmail: "john.doe@somedomain.com",
-                    },
-                },
-            },
-            thematic: {
-                filename: "thematic.png",
-            },
-            abstract: "Abstract: This is an example MAIDS document describing an empty dataset. It has been designed for publication within the MAIDS template on github.",
-            usecases: [{
-                usecase: "An example or a short use case statement.",
-            }, {
-                usecase: "Another example.",
-            }, {
-                usecase: "Include as many use cases as you would like.",
-            }, {
-                usecase: "A good practice is to itemize the uses identified by the main research questions.",
-            }, ],
-            research: {
-                main: "This is where you should describe the main research questions for which the dataset was created to answer. Please make it as long as it needs to be and refer to the figures. The use cases above should summarize these questions succinctly.",
-                secondary: "This is where you should describe the research questions that could be answered by this dataset even if it wasn't created for this exact purpose. The use cases above should summarize these questions succinctly."
-            },
-            figures: [{
-                figure: {
-                    filename: "example1.jpg",
-                    title: "Figure 1. First example",
-                    legend: "Figure 1's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example2.jpg",
-                    title: "Figure 2. Second example",
-                    legend: "Figure 2's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example3.jpg",
-                    title: "Figure 3. Third example",
-                    legend: "Figure 3's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example4.jpg",
-                    title: "Figure 4. Fourth example",
-                    legend: "Figure 4's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example5.jpg",
-                    title: "Figure 5. Fifth example",
-                    legend: "Figure 5's legend."
-                },
-            }, {
-                figure: {
-                    filename: "example6.jpg",
-                    title: "Figure 6. Sixth example",
-                    legend: "Figure 6's legend."
-                },
-            }, ],
-            subsetAssociations: {
-                filename: "datasetassociations.jpg",
-                legend: "An example of how 3 different subsets are connected by a patient identifier. The aspect ratio is 5 to 3.5.",
-            },
-            version: {
-                scores: "1",
-                description: "1",
-                questionnaire: "1",
-                subsets: "1",
-                synthetic: "1",
-            },
-            provenance: {
-                template: {
-                    commit: "9e9c6de",
-                    tag: "v0.1-alpha",
-                },
-                specification: {
-                    commit: "7581946",
-                    tag: "v0.1-alpha",
-                },
-            },
-            categories: [{
-                category: {
-                    id: "1",
-                    name: "Motivation",
-                    code: "M",
-                    description: "The questions in this category are primarily intended to encourage dataset creators to clearly articulate their reasons for creating the dataset and to promote transparency about funding interests.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "For what purpose was the dataset created?",
-                            help: "Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)?",
-                            help: "None"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Who funded the creation of the dataset?",
-                            help: "If there is an associated grant, please provide the name of the grantor and the grant name and number."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "2",
-                    name: "Composition",
-                    code: "C",
-                    description: "Most of these questions are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for specific tasks. The answers to some of these questions reveal information about compliance with the EU’s General Data Protection Regulation (GDPR) or comparable regulations in other jurisdictions.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What do the instances that comprise the dataset represent (e.g., samples, images, people)?",
-                            help: "Are there multiple types of instances (e.g., samples, images, and people), interactions (e.g., nodes and edges), resolutions (e.g., genetic data, single cell expression vs. tissue expression, cell counts, different image technologies, etc.)? Please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How many instances are there in total?",
-                            help: "Provide an exact integer value for each type mentioned in question C1."
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set?",
-                            help: "f the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g., an active decision to cover a more diverse range of instances, because instances were withheld or unavailable)."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What data does each instance consist of?",
-                            help: "“Raw” data (e.g., unprocessed text or images) or features? In either case, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there a label, target, or outcome (e.g., mortality) associated with each instance?",
-                            help: "If so, please provide a description and indicate its actual presence within the dataset or whether it is represented by a proxy or compounded (e.g., a multi-cause event)."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is any information missing from individual instances?",
-                            help: "If so, please provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g., redacted text."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are relationships between individual instances made explicit (e.g., familial links, or samples derived from the same patient or same exposure)?",
-                            help: "If so, please describe how these relationships are made explicit."
-                        }
-                    }, {
-                        entry: {
-                            id: "8",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are there recommended data splits (e.g., training, development/validation, testing)?",
-                            help: "If so, please provide a description of these splits, explaining the rationale behind them."
-                        }
-                    }, {
-                        entry: {
-                            id: "9",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are there any errors, sources of noise, or redundancies in the dataset?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "10",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g., websites, public databases, other datasets and/or private silos)?",
-                            help: "If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created); c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate."
-                        }
-                    }, {
-                        entry: {
-                            id: "11",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals’ non-public communications)?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "12",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety?",
-                            help: "If so, please describe why."
-                        }
-                    }, {
-                        entry: {
-                            id: "13",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset not relate to people (e.g., animals, cell lines, environment)?",
-                            help: "A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."
-                        }
-                    }, {
-                        entry: {
-                            id: "14",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset identify any subpopulations (e.g., by age, gender, etc.)?",
-                            help: "If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset."
-                        }
-                    }, {
-                        entry: {
-                            id: "15",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset?",
-                            help: "If so, please describe how."
-                        }
-                    }, {
-                        entry: {
-                            id: "16",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "17",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "3",
-                    name: "Collection Process",
-                    code: "L",
-                    description: "If possible, dataset creators should read through these questions prior to any data collection to flag potential issues and then provide answers once collection is complete. In addition to the goals of the prior category, the answers to questions here may provide information that allow others to reconstruct the dataset without access to it.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How was the data associated with each instance acquired?",
-                            help: "Was the data directly observable (e.g., raw text, instrument measurements), reported by subjects/physicians (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses, scores, etc.)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)?",
-                            help: "How were these mechanisms or procedures validated?"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?",
-                            help: "Please describe."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: " Who was involved in the data collection process (e.g., students, crowdworkers, contractors) and how were they compensated (e.g., salaried, immaterial through prizes / authorship / etc) and how much (e.g., according to competitive scales mandated by [insert body or institution])?",
-                            help: "None"
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Over what timeframe was the data collected?",
-                            help: "Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent data from old biobanked samples, or recent data dump from a 5-year-old registry)? If not, please describe the time frame in which the data associated with the instances was created."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Were any ethical review processes conducted (e.g., by an institutional review board)?",
-                            help: "If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Does the dataset not relate to people (e.g., animals, cell lines, environment)?",
-                            help: "A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."
-                        }
-                    }, {
-                        entry: {
-                            id: "8",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g., websites)?",
-                            help: "Please explain."
-                        }
-                    }, {
-                        entry: {
-                            id: "9",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Were the individuals in question notified about the data collection?",
-                            help: "If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself."
-                        }
-                    }, {
-                        entry: {
-                            id: "10",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Did the individuals in question consent to the collection and use of their data?",
-                            help: "If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented."
-                        }
-                    }, {
-                        entry: {
-                            id: "11",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: " If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses?",
-                            help: "If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate)."
-                        }
-                    }, {
-                        entry: {
-                            id: "12",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a data protection impact analysis) been conducted?",
-                            help: "If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation."
-                        }
-                    }, {
-                        entry: {
-                            id: "13",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "4",
-                    name: "Preprocessing, Cleaning, Labling",
-                    code: "P",
-                    description: "If possible, dataset creators should read through these questions prior to any preprocessing, cleaning, or labeling and then provide answers once these tasks are complete. The questions in this category are intended to provide dataset consumers with the information they need to determine whether the “raw” data has been processed in ways that are compatible with their chosen tasks.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)?",
-                            help: "If so, please provide a description. If not, you may skip the remainder of the questions in this section."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)?",
-                            help: "If so, is it available and needs to be done to gain access? If open without restriction then please describe a means to access this “raw” data."
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is the software used to preprocess/clean/label the instances available?",
-                            help: "If so, please provide a link or other access point and describe with enough detail so that others might reproduce it. If a custom script was used will you include it within the MAIDS repository or otherwise make it available?"
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "5",
-                    name: "Uses",
-                    code: "U",
-                    description: "These questions are intended to encourage dataset creators to reflect on the tasks for which the dataset should and should not be used. By explicitly highlighting these tasks, dataset creators can help dataset consumers to make informed decisions, thereby avoiding potential risks or harm.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Has the dataset been used for any tasks already?",
-                            help: "hers determine the value of this dataset by example."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there a repository that links to any or all papers or systems that use the dataset?",
-                            help: "If so, please provide a link or other access point. Will you compile such a list and make it available in the MAIDS repository?"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "What (other) tasks could the dataset be used for?",
-                            help: "Please provide as much inspiration as you can. Distinguish between tasks the dataset is ideal for versus those tasks where the dataset is not entirely suited. Describe why the dataset might not be suitable "
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?",
-                            help: "For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other undesirable harms (e.g., financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?"
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Are there tasks for which the dataset should not be used?",
-                            help: "If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "6",
-                    name: "Distribution",
-                    code: "D",
-                    description: "Dataset creators should provide answers to these questions prior to distributing the dataset either internally within the entity on behalf of which the dataset was created or externally to third parties.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will the dataset be distributed to third parties outside of the entity (e.g., company, institution, organization) on behalf of which the dataset was created",
-                            help: "If so, please provide a description. If not, then disregard the rest of the questions."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How will the dataset be distributed (e.g., tarball on website, API, GitHub)?",
-                            help: "Does the dataset have a digital object identifier (DOI)?"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "When will the dataset be distributed?",
-                            help: "A cautious response is more useful than an optimistic one."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)?",
-                            help: "If so, please describe this license and/or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions."
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Have any third-parties imposed IP-based or other restrictions on the data associated with the instances?",
-                            help: "If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Do any export controls or other regulatory restrictions apply to the dataset or to individual instances?",
-                            help: "If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                category: {
-                    id: "7",
-                    name: "Maintenance",
-                    code: "T",
-                    description: "As with the previous category, dataset creators should provide answers to these questions prior to distributing the dataset. These questions are intended to encourage dataset creators to plan for dataset maintenance and communicate this plan with dataset consumers.",
-                    entries: [{
-                        entry: {
-                            id: "1",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Who is supporting/hosting/maintaining the dataset?",
-                            help: "Please be as thorough as possible."
-                        }
-                    }, {
-                        entry: {
-                            id: "2",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "How can the owner/curator/manager of the dataset be contacted (e.g., email address)?",
-                            help: "None"
-                        }
-                    }, {
-                        entry: {
-                            id: "3",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Is there an erratum?",
-                            help: "If so, please provide a link or other access point."
-                        }
-                    }, {
-                        entry: {
-                            id: "4",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)?",
-                            help: "If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?"
-                        }
-                    }, {
-                        entry: {
-                            id: "5",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (e.g., were individuals in question told that their data would be retained for a fixed period of time and then deleted)?",
-                            help: "If so, please describe these limits and explain how they will be enforced."
-                        }
-                    }, {
-                        entry: {
-                            id: "6",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Will older versions of the dataset continue to be supported/hosted/maintained?",
-                            help: "If so, please describe how. If not, please describe how its obsolescence will be communicated to users."
-                        }
-                    }, {
-                        entry: {
-                            id: "7",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so?",
-                            help: "If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to other users? If so, please provide a description."
-                        }
-                    }, {
-                        entry: {
-                            id: "8",
-                            answer: "None",
-                            by: "",
-                            on: "",
-                            question: "Any other comments?",
-                            help: "None"
-                        }
-                    }, ]
-                }
-            }, ],
-            definitions: [{
-                definition: {
-                    id: "1",
-                    keyword: "A keyword",
-                    definition: "It means this.",
-                    link: "https://link.to.reference/material"
-                }
-            }, {
-                definition: {
-                    id: "2",
-                    keyword: "Another keyword",
-                    definition: "Another definition without an online reference.",
-                    link: ""
-                }
-            }, ],
-            subsets: [{
-                subset: {
-                    id: "1",
-                    name: "Example subset of tabular data",
-                    updated: "2021/03/01",
-                    modality: "TABULAR",
-                    format: "CSV",
-                    size: "0",
-                    featureCount: "1",
-                    parentid: "None",
-                    covmat: "No covariance matrix or any other similar data provided.",
-                    modsys: "No models, model systems, or any other statistical description provided.",
-                    purpose: "To provide an example specification for a tabular CSV file.",
-                    link: "",
-                    features: [{
-                        feature: {
-                            id: "1",
-                            date: "2021/03/01",
-                            name: "PID",
-                            values: "1..inf; int",
-                            meaningNaNullNone: "Not possible",
-                            meaningZero: "Not possible",
-                            meaningBlankVoid: "Not possible",
-                            sparsity: "None",
-                            mean: "None",
-                            std: "None",
-                            modality: "None",
-                            median: "None",
-                            iqr: "None",
-                            parents: "None",
-                            unit: "None",
-                            definition: "Pseudononymized patient identifier.",
-                            purpose: "Act as the primary identifier for joining subsets.",
-                            encoding: "None"
-                        }
-                    }, ]
-                }
-            }, {
-                subset: {
-                    id: "2",
-                    name: "Example of unstructured data in files",
-                    updated: "2021/03/01",
-                    modality: "FILES",
-                    format: "something",
-                    size: "0",
-                    featureCount: "0",
-                    parentid: "None",
-                    covmat: "No covariance matrix or any other similar data provided.",
-                    modsys: "No models, model systems, or any other statistical description provided.",
-                    purpose: "To provide an example specification for a folder containing many unstructured data files. Since there is no structure, no features are listed below. If there is a manifest, describe it within another subset and reference this subset as its parent.",
-                    link: "",
-                    features: []
-                }
-            }, {
-                subset: {
-                    id: "3",
-                    name: "A manifest of data files and their meta-data",
-                    updated: "2021/03/01",
-                    modality: "TABULAR",
-                    format: "XML",
-                    size: "0",
-                    featureCount: "3",
-                    parentid: "2",
-                    covmat: "Irrelevant",
-                    modsys: "Irrelevant",
-                    purpose: "To provide an example of how meta-data on a folder of files could be specified.",
-                    link: "",
-                    features: [{
-                        feature: {
-                            id: "1",
-                            date: "2021/03/01",
-                            name: "PID",
-                            values: "1..inf; int",
-                            meaningNaNullNone: "Not possible",
-                            meaningZero: "Not possible",
-                            meaningBlankVoid: "Not possible",
-                            sparsity: "None",
-                            mean: "None",
-                            std: "None",
-                            modality: "None",
-                            median: "None",
-                            iqr: "None",
-                            parents: "None",
-                            unit: "None",
-                            definition: "Pseudononymized patient identifier.",
-                            purpose: "Act as the primary identifier for joining subsets.",
-                            encoding: "None"
-                        }
-                    }, {
-                        feature: {
-                            id: "2",
-                            date: "2021/03/01",
-                            name: "Filename",
-                            values: "a-zA-Z; str",
-                            meaningNaNullNone: "NA",
-                            meaningZero: "NA",
-                            meaningBlankVoid: "NA",
-                            sparsity: "NA",
-                            mean: "NA",
-                            std: "NA",
-                            modality: "NA",
-                            median: "NA",
-                            iqr: "NA",
-                            parents: "NA",
-                            unit: "None",
-                            definition: "The filename",
-                            purpose: "Provide name of file",
-                            encoding: "NA"
-                        }
-                    }, {
-                        feature: {
-                            id: "3",
-                            date: "2021/03/01",
-                            name: "Some information",
-                            values: "1..inf; str",
-                            meaningNaNullNone: "NA",
-                            meaningZero: "NA",
-                            meaningBlankVoid: "NA",
-                            sparsity: "NA",
-                            mean: "NA",
-                            std: "NA",
-                            modality: "NA",
-                            median: "NA",
-                            iqr: "NA",
-                            parents: "NA",
-                            unit: "None",
-                            definition: "Some extra information unique to each file",
-                            purpose: "Why this information exists",
-                            encoding: "NA"
-                        }
-                    }, ]
-                }
-            }, ]
-        })
+        var filledHandle = template({ title:"Predicting the immune response to SARS-CoV2 in the COVIMUN cohort, a study of host genetics and cytokine response profiles in the context of known immunological pathways",repository:"https://github.com/UltrathonOnline/MAIDS.U21-04.COVIMUN",authors:[{author: {firstnames: "Eva Rebecka", lastname: "Svanberg", email: "eva.rebecka.svanberg@regionh.dk",},},{author: {firstnames: "Carsten Utoft", lastname: "Niemann", email: "carsten.utoft.niemann@regionh.dk",},},{author: {firstnames: "Sisse Rye", lastname: "Ostrowski", email: "sisse.rye.ostrowski@regionh.dk",},},{author: {firstnames: "Rasmus Lykke", lastname: "Marvig", email: "rasmus.lykke.marvig@regionh.dk",},},{author: {firstnames: "Preston", lastname: "Leung", email: "preston.yui.sum.leung@regionh.dk",},},],scores:{ document: {score:"1",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},},fairness: {score:"?",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},},magnitude: {score:"2",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},},synthetic: {score:"E",comment:"None",evaluator:{entityType:"None",entityName:"None",contactName:"None",contactEmail:"None",},}, },thematic:{ filename:"thematic.jpg", },abstract:"The sudden emergence of a global pandemic with a new pathogen, SARS-CoV-2, created an instant need to understand the immunologic reactions arising in response to infection with this pathogen, as well as understanding the underlying patient-specific factors determining the circumstances within which these immune reactions occur. As a result, the current dataset was created, combining whole genome sequencing with consecutive extensive characterization of patient immune cell composition and phenotypes together with in vitro functional assessment of stimulated whole blood immune responses. The current dataset provides a unique opportunity to unravel correlations between genotype and immune phenotype- and function in response to COVID-19, which could ultimately have significant clinical impact.",usecases:[{usecase: "None",},],research:{main:"The pandemic due to COVID-19 remains a global health crisis, having already claimed over 2 million lives over the past 14 months. Clinical presentation of the disease varies from asymptomatic or mild cold-like symptoms to severe pneumonia requiring ventilator support or multi-organ failure, and it remains a major challenge to uncover the immunological mechanisms underlying the diverse clinical presentation and course of COVID-19. Furthermore, it is largely unknown to what degree the host genome might contribute to the immune response in SARS-CoV-2 infection. We have applied whole genome sequencing in parallel with consecutive extensive immune phenotyping (10 color 7 tube flowcytometry per sample) and functional immune characterization (TruCulture technique, 5 stimuli, 9 cytokines per sample) assays in 100 patients hospitalized with COVID-19 in Denmark. The immune analyses were performed upon hospital admission, and hereafter weekly until discharge or death. Our hypothesis is that host genetics contribute to the immune response to SARS-CoV-2, and our primary aim is to identify genetic features that can predict immune phenotypes and function in patients hospitalized with COVID-19. A better understanding of the relationship between the host genome and the immune response to SARS-CoV-2 would not only help improve personalized risk assessment, care, and treatment of COVID-19 patients, but also provide helpful knowledge for development of future medical targets and vaccines as well as tools for treating and preventing other infectious diseases. We therefore pose the challenge here of mapping host genetics to personalized response profiles, i.e. measures of patient’s unique immune behavior. We provide additional data to model batch effects as well as in house methods making use of graph techniques to increase statistical power, but especially look for novel solutions from the community. An additional cohort of 100 will be collected and added to this dataset providing opportunity to test solutions.",secondary:"None"},figures:[],subsetAssociations:{filename: "subset.jpg",legend:"Three subsets linked by a pseudonymized patient identifier.",},version: { scores: "None", description: "None", questionnaire: "None", subsets: "None", synthetic: "None", },provenance: { template: { commit: "None", tag: "None", }, specification: { commit: "None", tag: "None", }, },categories:[{category:{
+id:"1",
+name:"Motivation",
+code:"M",
+description:"The questions in this category are primarily intended to encourage dataset creators to clearly articulate their reasons for creating the dataset and to promote transparency about funding interests.",
+entries:[
+{entry: {id:"1", answer:"The sudden emergence of a global pandemic with a new pathogen, SARS-CoV-2, created an instant need to understand the immunologic reactions arising in response to infection with this pathogen, as well as understanding the underlying patient-specific factors determining the circumstances within which these immune reactions occur. As a result, the current dataset was created, combining whole genome sequencing with consecutive extensive characterization of patient immune cell composition and phenotypes together with in vitro functional assessment of stimulated whole blood immune responses. The current dataset provides a unique opportunity to unravel correlations between genotype and immune phenotype- and function in response to COVID-19, which could ultimately have significant clinical impact.", by:"", on:"", question:"For what purpose was the dataset created?", help:"Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description."}},
+{entry: {id:"2", answer:"Sisse Rye Ostrowski and Carsten Utoft Niemann", by:"", on:"", question:"Who created the dataset (e.g., which team, research group) and on behalf of which entity (e.g., company, institution, organization)?", help:"None"}},
+{entry: {id:"3", answer:"Ministry of Higher Education and Science, COVID-19-19 grant", by:"", on:"", question:"Who funded the creation of the dataset?", help:"If there is an associated grant, please provide the name of the grantor and the grant name and number."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"2",
+name:"Composition",
+code:"C",
+description:"Most of these questions are intended to provide dataset consumers with the information they need to make informed decisions about using the dataset for specific tasks. The answers to some of these questions reveal information about compliance with the EU’s General Data Protection Regulation (GDPR) or comparable regulations in other jurisdictions.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"What do the instances that comprise the dataset represent (e.g., samples, images, people)?", help:"Are there multiple types of instances (e.g., samples, images, and people), interactions (e.g., nodes and edges), resolutions (e.g., genetic data, single cell expression vs. tissue expression, cell counts, different image technologies, etc.)? Please provide a description."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"How many instances are there in total?", help:"Provide an exact integer value for each type mentioned in question C1."}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set?", help:"f the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (e.g., geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (e.g., an active decision to cover a more diverse range of instances, because instances were withheld or unavailable)."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"What data does each instance consist of?", help:"“Raw” data (e.g., unprocessed text or images) or features? In either case, please provide a description."}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Is there a label, target, or outcome (e.g., mortality) associated with each instance?", help:"If so, please provide a description and indicate its actual presence within the dataset or whether it is represented by a proxy or compounded (e.g., a multi-cause event)."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Is any information missing from individual instances?", help:"If so, please provide a description, explaining why this information is missing (e.g., because it was unavailable). This does not include intentionally removed information, but might include, e.g., redacted text."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"Are relationships between individual instances made explicit (e.g., familial links, or samples derived from the same patient or same exposure)?", help:"If so, please describe how these relationships are made explicit."}},
+{entry: {id:"8", answer:"None", by:"", on:"", question:"Are there recommended data splits (e.g., training, development/validation, testing)?", help:"If so, please provide a description of these splits, explaining the rationale behind them."}},
+{entry: {id:"9", answer:"None", by:"", on:"", question:"Are there any errors, sources of noise, or redundancies in the dataset?", help:"If so, please provide a description."}},
+{entry: {id:"10", answer:"None", by:"", on:"", question:"Is the dataset self-contained, or does it link to or otherwise rely on external resources (e.g., websites, public databases, other datasets and/or private silos)?", help:"If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (i.e., including the external resources as they existed at the time the dataset was created); c) are there any restrictions (e.g., licenses, fees) associated with any of the external resources that might apply to a future user? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate."}},
+{entry: {id:"11", answer:"None", by:"", on:"", question:"Does the dataset contain data that might be considered confidential (e.g., data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals’ non-public communications)?", help:"If so, please provide a description."}},
+{entry: {id:"12", answer:"None", by:"", on:"", question:"Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety?", help:"If so, please describe why."}},
+{entry: {id:"13", answer:"None", by:"", on:"", question:"Does the dataset not relate to people (e.g., animals, cell lines, environment)?", help:"A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."}},
+{entry: {id:"14", answer:"None", by:"", on:"", question:"Does the dataset identify any subpopulations (e.g., by age, gender, etc.)?", help:"If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset."}},
+{entry: {id:"15", answer:"None", by:"", on:"", question:"Is it possible to identify individuals (i.e., one or more natural persons), either directly or indirectly (i.e., in combination with other data) from the dataset?", help:"If so, please describe how."}},
+{entry: {id:"16", answer:"None", by:"", on:"", question:"Does the dataset contain data that might be considered sensitive in any way (e.g., data that reveals racial or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)?", help:"If so, please provide a description."}},
+{entry: {id:"17", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"3",
+name:"Collection Process",
+code:"L",
+description:"If possible, dataset creators should read through these questions prior to any data collection to flag potential issues and then provide answers once collection is complete. In addition to the goals of the prior category, the answers to questions here may provide information that allow others to reconstruct the dataset without access to it.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"How was the data associated with each instance acquired?", help:"Was the data directly observable (e.g., raw text, instrument measurements), reported by subjects/physicians (e.g., survey responses), or indirectly inferred/derived from other data (e.g., part-of-speech tags, model-based guesses, scores, etc.)? If data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"What mechanisms or procedures were used to collect the data (e.g., hardware apparatus or sensor, manual human curation, software program, software API)?", help:"How were these mechanisms or procedures validated?"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"If the dataset is a sample from a larger set, what was the sampling strategy (e.g., deterministic, probabilistic with specific sampling probabilities)?", help:"Please describe."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:" Who was involved in the data collection process (e.g., students, crowdworkers, contractors) and how were they compensated (e.g., salaried, immaterial through prizes / authorship / etc) and how much (e.g., according to competitive scales mandated by [insert body or institution])?", help:"None"}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Over what timeframe was the data collected?", help:"Does this timeframe match the creation timeframe of the data associated with the instances (e.g., recent data from old biobanked samples, or recent data dump from a 5-year-old registry)? If not, please describe the time frame in which the data associated with the instances was created."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Were any ethical review processes conducted (e.g., by an institutional review board)?", help:"If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"Does the dataset not relate to people (e.g., animals, cell lines, environment)?", help:"A short answer is sufficient. If no relation to people, you may skip the remaining questions in this section."}},
+{entry: {id:"8", answer:"None", by:"", on:"", question:"Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (e.g., websites)?", help:"Please explain."}},
+{entry: {id:"9", answer:"None", by:"", on:"", question:"Were the individuals in question notified about the data collection?", help:"If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself."}},
+{entry: {id:"10", answer:"None", by:"", on:"", question:"Did the individuals in question consent to the collection and use of their data?", help:"If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented."}},
+{entry: {id:"11", answer:"None", by:"", on:"", question:" If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses?", help:"If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate)."}},
+{entry: {id:"12", answer:"None", by:"", on:"", question:"Has an analysis of the potential impact of the dataset and its use on data subjects (e.g., a data protection impact analysis) been conducted?", help:"If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation."}},
+{entry: {id:"13", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"4",
+name:"Preprocessing, Cleaning, Labling",
+code:"P",
+description:"If possible, dataset creators should read through these questions prior to any preprocessing, cleaning, or labeling and then provide answers once these tasks are complete. The questions in this category are intended to provide dataset consumers with the information they need to determine whether the “raw” data has been processed in ways that are compatible with their chosen tasks.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Was any preprocessing/cleaning/labeling of the data done (e.g., discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)?", help:"If so, please provide a description. If not, you may skip the remainder of the questions in this section."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (e.g., to support unanticipated future uses)?", help:"If so, is it available and needs to be done to gain access? If open without restriction then please describe a means to access this “raw” data."}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Is the software used to preprocess/clean/label the instances available?", help:"If so, please provide a link or other access point and describe with enough detail so that others might reproduce it. If a custom script was used will you include it within the MAIDS repository or otherwise make it available?"}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"5",
+name:"Uses",
+code:"U",
+description:"These questions are intended to encourage dataset creators to reflect on the tasks for which the dataset should and should not be used. By explicitly highlighting these tasks, dataset creators can help dataset consumers to make informed decisions, thereby avoiding potential risks or harm.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Has the dataset been used for any tasks already?", help:"hers determine the value of this dataset by example."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"Is there a repository that links to any or all papers or systems that use the dataset?", help:"If so, please provide a link or other access point. Will you compile such a list and make it available in the MAIDS repository?"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"What (other) tasks could the dataset be used for?", help:"Please provide as much inspiration as you can. Distinguish between tasks the dataset is ideal for versus those tasks where the dataset is not entirely suited. Describe why the dataset might not be suitable "}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses?", help:"For example, is there anything that a future user might need to know to avoid uses that could result in unfair treatment of individuals or groups (e.g., stereotyping, quality of service issues) or other undesirable harms (e.g., financial harms, legal risks) If so, please provide a description. Is there anything a future user could do to mitigate these undesirable harms?"}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Are there tasks for which the dataset should not be used?", help:"If so, please provide a description."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"6",
+name:"Distribution",
+code:"D",
+description:"Dataset creators should provide answers to these questions prior to distributing the dataset either internally within the entity on behalf of which the dataset was created or externally to third parties.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Will the dataset be distributed to third parties outside of the entity (e.g., company, institution, organization) on behalf of which the dataset was created", help:"If so, please provide a description. If not, then disregard the rest of the questions."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"How will the dataset be distributed (e.g., tarball on website, API, GitHub)?", help:"Does the dataset have a digital object identifier (DOI)?"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"When will the dataset be distributed?", help:"A cautious response is more useful than an optimistic one."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)?", help:"If so, please describe this license and/or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions."}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"Have any third-parties imposed IP-based or other restrictions on the data associated with the instances?", help:"If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Do any export controls or other regulatory restrictions apply to the dataset or to individual instances?", help:"If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+{category:{
+id:"7",
+name:"Maintenance",
+code:"T",
+description:"As with the previous category, dataset creators should provide answers to these questions prior to distributing the dataset. These questions are intended to encourage dataset creators to plan for dataset maintenance and communicate this plan with dataset consumers.",
+entries:[
+{entry: {id:"1", answer:"None", by:"", on:"", question:"Who is supporting/hosting/maintaining the dataset?", help:"Please be as thorough as possible."}},
+{entry: {id:"2", answer:"None", by:"", on:"", question:"How can the owner/curator/manager of the dataset be contacted (e.g., email address)?", help:"None"}},
+{entry: {id:"3", answer:"None", by:"", on:"", question:"Is there an erratum?", help:"If so, please provide a link or other access point."}},
+{entry: {id:"4", answer:"None", by:"", on:"", question:"Will the dataset be updated (e.g., to correct labeling errors, add new instances, delete instances)?", help:"If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?"}},
+{entry: {id:"5", answer:"None", by:"", on:"", question:"If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (e.g., were individuals in question told that their data would be retained for a fixed period of time and then deleted)?", help:"If so, please describe these limits and explain how they will be enforced."}},
+{entry: {id:"6", answer:"None", by:"", on:"", question:"Will older versions of the dataset continue to be supported/hosted/maintained?", help:"If so, please describe how. If not, please describe how its obsolescence will be communicated to users."}},
+{entry: {id:"7", answer:"None", by:"", on:"", question:"If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so?", help:"If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to other users? If so, please provide a description."}},
+{entry: {id:"8", answer:"None", by:"", on:"", question:"Any other comments?", help:"None"}},
+]}},
+],definitions:[{definition:{id:"1",keyword:"TruCulture",definition:"A simple whole blood collection and culture system for quantifying physiological reactions and interactions of the human immune system in the clinic.",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"2",keyword:"DuraClone",definition:"The product range includes optimized antibody combinations for the identification and characterization of cells of the human immune system.",link:"https://www.beckman.fr/reagents/coulter-flow-cytometry/antibodies-and-kits/duraclone-panels"}},
+{definition:{id:"3",keyword:"None",definition:"The unstimulated control in the TruCulture assay",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"4",keyword:"LPS",definition:"Lipopolysccharide. Bacterial stimuli in the TruCulture assay.",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"5",keyword:"R848",definition:"Resiquimod. Viral stimuli in the TruCulture assay.",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"6",keyword:"PolyIC",definition:"Polyinosinic:polycytidylic acid. Viral stimul in the TruCulture assay.",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"7",keyword:"HKCA",definition:"Heat killde candida albicans. Fungal stimuli in the TruCulture assay.",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"8",keyword:"CD3/CD28",definition:"T-cell receptor/coreceptor stimuli in the TruCulture assay. Induces a T-cell response",link:"https://myriadrbm.com/truculture/"}},
+{definition:{id:"9",keyword:"IFNa",definition:"Interferon alpha. Cytokine protein, important for initial anti-viral response.",link:""}},
+{definition:{id:"10",keyword:"IFNg",definition:"Interfron gamma. Cytokine protein, involved in activaiton of innate immune cells and in T-cell response. Important for antiviral and antibacterial immune response.",link:""}},
+{definition:{id:"11",keyword:"IL10",definition:"Interleukin 10. Cytokine protein with immune modulatory/ immunosuppressive effects",link:""}},
+{definition:{id:"12",keyword:"IL12",definition:"Interleukin 12. Cytokine protein important for activation of T-cell repsonse",link:""}},
+{definition:{id:"13",keyword:"IL17A",definition:"Interleukin 17 A. Cytokine protient, an effector protein of a specific T-cell subset (Th17 T-cells), important for defence againg extracellular bacteria and fungi.",link:""}},
+{definition:{id:"14",keyword:"IL1b",definition:"Interleukin 1 beta. Cytokine protein, important for acute inflammatory response.",link:""}},
+{definition:{id:"15",keyword:"IL6",definition:"Interleukin 6. Cytokine protein, important in acute inlfammation and acute phase reactant and mediator of fever.",link:""}},
+{definition:{id:"16",keyword:"IL8",definition:"Interleukin 8. Cytokine protein. Important for recruitment and activation of neutrophils and other innate effector cells.",link:""}},
+{definition:{id:"17",keyword:"TNFa",definition:"Tumor necrosis factor alpha. Cytokine protein, important for acute inflammatory response.",link:""}},
+],subsets:[{subset: {
+id:"1",
+name:"Genetics-Processed",
+updated:"2021/03/10",
+modality:"FILES",
+format:"VCF",
+size:"100",
+featureCount:"0",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"One VCF file per patient describes the variation in the patients genome with respect to a common reference. ",
+link:"https://samtools.github.io/hts-specs/VCFv4.2.pdf",
+features:[
+]}},
+{subset: {
+id:"2",
+name:"TruCulture_processed",
+updated:"2021/02/16",
+modality:"TABULAR",
+format:"CSV/XLSX",
+size:"1150",
+featureCount:"7",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"Summarized biological readouts from TruCulture: induced cytokine protein levels - the functional outcome related to cell-popoulations/phenotypes and genotypes",
+link:"https://myriadrbm.com/truculture/",
+features:[
+{feature: {id:"1",date:"None",name:"STUDY_ID",values:"Many, character/string",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Pseudonymized patient identifier",purpose:"Study-specific patient ID needed to map this subset to the others.",encoding:"All start with 'COVIMUN': name of study, followed by 'XX': capitalized hospital code, followed by enrollment number at that hospital"}},
+{feature: {id:"2",date:"None",name:"DC_SAMPLE_ID",values:"Two sep by _, (4013..inf; integer) representing sample number, (2020..2021; YYYY) representing sample year",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"Not possible in format.",definition:"Unique sample identifier",purpose:"Unique ID to identify specific DuraClone sample, always connected to a single STUDY_ID",encoding:"None"}},
+{feature: {id:"3",date:"None",name:"SAMPLE_DATE",values:"YYYY-MM-DD",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Date of sampling",purpose:"Investigate longitudinal effect. Can together with STUDY_ID link samples from different subsets taken at the same time/the same date",encoding:"None"}},
+{feature: {id:"4",date:"None",name:"TUBE",values:"Many, character/string",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Identifies the specific flow cytometry tube from which data is derived ",purpose:"Each tube has a specific set of antibody markers, enables backtracking from a feature",encoding:"T = tube, 1-9 = number of tube"}},
+{feature: {id:"5",date:"None",name:"VAR_NAME",values:"Many, character/string; cell population/phenotype symbol",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Identifies the specific cell population and phenotype markers",purpose:"Potential  features/outcome variables",encoding:"None"}},
+{feature: {id:"6",date:"None",name:"VAR_UNIT",values:"Many, character/string; count, concentration, or mfi",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"See definition",definition:"cnt: events detected for the given variable, 'con': corresponding bloodstream concentration, 'mfi': mean fluorescence intensity corresponding to a marker's mean expression level",purpose:"Concentration and mean fluorescence intensity allow for comparison between samples",encoding:"None"}},
+{feature: {id:"7",date:"None",name:"VAR_VAL",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cell population/ marker level not present or under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"Specified under VAR_UNIT",definition:"Value of measurement",purpose:"Value of measurement",encoding:"None"}},
+]}},
+{subset: {
+id:"3",
+name:"Duraclone_processed",
+updated:"2020/06/05",
+modality:"TABULAR",
+format:"CSV/XLSX",
+size:"289200",
+featureCount:"13",
+parentid:"0",
+covmat:"None",
+modsys:"None",
+purpose:"Summarized biological readouts from Duraclone: immune cell popoulation -and phenotype levels - outcome related to  genotypes",
+link:"https://www.beckman.fr/reagents/coulter-flow-cytometry/antibodies-and-kits/duraclone-panels",
+features:[
+{feature: {id:"1",date:"None",name:"STUDY_ID",values:"Many, character/string",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Pseudonymized patient identifier",purpose:"Study-specific patient ID needed to map this subset to the others.",encoding:"All start with 'COVIMUN': name of study, followed by 'XX': capitalized hospital code, followed by enrollment number at that hospital"}},
+{feature: {id:"2",date:"None",name:"SAMPLE_DATE",values:"YYYY-MM-DD",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"Date of sampling",purpose:"Investigate longitudinal effect. Can together with STUDY_ID link samples from different subsets taken at the same time/the same date",encoding:"None"}},
+{feature: {id:"3",date:"None",name:"TC_SAMPLE_ID",values:"(1147..inf; integer) representing TruCulture sample number",meaningNaNullNone:"Not possible in format.",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"Not possible in format.",definition:"Unique sample identifier",purpose:"Unique ID to identify specific TruCulture sample, always connected to a single STUDY_ID",encoding:"None"}},
+{feature: {id:"4",date:"None",name:"STIMULI",values:"Many, character/string",meaningNaNullNone:"NULL means unstimulated (control for stimulated samples)",meaningZero:"No zeros",meaningBlankVoid:"Not possible in format.",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"None",definition:"NULL : no stimulation, 'LPS' : lipopolysaccharide (bacterial stimuli), 'R848' : resiquimod (viral stimuli), 'PolyIC' : Polyinosinic:polycytidylic acid (viral stimuli), 'HKCA' heat killed candida albicans (fungal stimuli), 'CD3/CD28' T-cell stimulation (direct stimulation)",purpose:"The stimuli correspond to different infectious agents, inducing functional immune responses (cytokine release) ",encoding:"None"}},
+{feature: {id:"5",date:"None",name:"IFNa",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"6",date:"None",name:"IFNg",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"7",date:"None",name:"IL10",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"8",date:"None",name:"IL12",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"9",date:"None",name:"IL17A",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"10",date:"None",name:"IL1b",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"11",date:"None",name:"IL6",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"12",date:"None",name:"IL8",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+{feature: {id:"13",date:"None",name:"TNFa",values:"0..inf; real",meaningNaNullNone:"Measurment missing for a random reason e.g. technical error with assay",meaningZero:"Cytokine protein under detectible level in sample",meaningBlankVoid:"Measurement or sample missing",sparsity:"None",mean:"None",std:"None",modality:"None",median:"None",iqr:"None",parents:"None",unit:"concentration (pg/mL)",definition:"Value of measurement",purpose:"Measurement of variable, potential feature/outcome varible",encoding:"None"}},
+]}},
+] })
 
         document.getElementById("emptyHandle").innerHTML += filledHandle;
-    </script>
-    <script src="./js/collapse.js">
-    </script>
-</body>
-
+  </script>
+  <script src="./js/collapse.js">
+  </script>
+ </body>
 </html>
